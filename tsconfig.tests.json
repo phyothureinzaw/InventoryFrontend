@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "outDir": "../.frontend-test-dist",
+    "rootDir": "."
+  },
+  "include": ["src/features/stock-movements/requestLifecycle.ts", "src/features/stock-movements/validation.ts", "src/features/date-ranges.ts", "src/features/purchase-orders/lifecycle.ts", "src/features/purchase-orders/validation.ts", "src/features/purchase-orders/recovery.ts", "src/features/sales-orders/api.ts", "src/features/sales-orders/validation.ts", "src/features/sales-orders/recovery.ts", "src/features/customers/validation.ts", "src/features/returns/api.ts", "src/features/returns/validation.ts", "src/features/returns/recovery.ts"]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test:request-id": "tsc -p tsconfig.tests.json && node --test tests/request-id.test.mjs",
+    "test:date-range": "tsc -p tsconfig.tests.json && node --test tests/date-range.test.mjs",
+    "test:purchase-orders": "tsc -p tsconfig.tests.json && node --test tests/purchase-orders.test.mjs",
+    "test:sales-orders": "tsc -p tsconfig.tests.json && node --test tests/sales-orders.test.mjs",
+    "test:returns": "tsc -p tsconfig.tests.json && node --test tests/returns.test.mjs"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^9.5.0",
+    "@mui/material": "^9.5.0",
+    "@tanstack/react-query": "^5.104.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4",
+    "recharts": "^3.10.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.71.1",
+    "vite": "^8.3.0"
+  }
+}

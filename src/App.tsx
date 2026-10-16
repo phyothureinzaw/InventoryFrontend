@@ -1,0 +1,25 @@
+import { Alert, Stack, Typography } from '@mui/material'
+import { Route, Routes } from 'react-router-dom'
+import AppShell from './features/layout/AppShell'
+import LoginPage from './features/auth/LoginPage'
+import { RequireAdmin, RequireAuth } from './features/auth/RouteGuards'
+import UsersPage from './features/users/UsersPage'
+import ProductsPage from './features/products/ProductsPage'
+import CategoriesPage from './features/categories/CategoriesPage'
+import SuppliersPage from './features/suppliers/SuppliersPage'
+import CustomersPage from './features/customers/CustomersPage'
+import StockInPage from './features/stock-movements/StockInPage'
+import StockOutPage from './features/stock-movements/StockOutPage'
+import MovementHistoryPage from './features/movement-history/MovementHistoryPage'
+import DashboardPage from './features/dashboard/DashboardPage'
+import PurchaseOrdersPage from './features/purchase-orders/PurchaseOrdersPage'
+import PurchaseOrderEditorPage from './features/purchase-orders/PurchaseOrderEditorPage'
+import PurchaseOrderDetailPage from './features/purchase-orders/PurchaseOrderDetailPage'
+import SalesOrdersPage from './features/sales-orders/SalesOrdersPage'
+import SalesOrderEditorPage from './features/sales-orders/SalesOrderEditorPage'
+import SalesOrderDetailPage from './features/sales-orders/SalesOrderDetailPage'
+import ReturnsPage from './features/returns/ReturnsPage'
+
+function Forbidden() { return <Stack spacing={2} sx={{ maxWidth: 680 }}><Typography variant="overline" color="error" sx={{ fontWeight: 700 }}>Access denied</Typography><Typography variant="h3" sx={{ fontWeight: 800 }}>You cannot view this page.</Typography><Alert severity="warning">Your account does not have permission to access this area.</Alert></Stack> }
+
+export default function App() { return <Routes><Route path="/login" element={<LoginPage />} /><Route element={<RequireAuth />}><Route element={<AppShell />}><Route path="/" element={<DashboardPage />} /><Route path="/products" element={<ProductsPage />} /><Route path="/categories" element={<CategoriesPage />} /><Route path="/suppliers" element={<SuppliersPage />} /><Route path="/customers" element={<CustomersPage />} /><Route path="/sales-orders" element={<SalesOrdersPage />} /><Route path="/sales-orders/new" element={<SalesOrderEditorPage />} /><Route path="/sales-orders/:id" element={<SalesOrderDetailPage />} /><Route path="/sales-orders/:id/edit" element={<SalesOrderEditorPage />} /><Route path="/purchase-orders" element={<PurchaseOrdersPage />} /><Route path="/purchase-orders/new" element={<PurchaseOrderEditorPage />} /><Route path="/purchase-orders/:id" element={<PurchaseOrderDetailPage />} /><Route path="/purchase-orders/:id/edit" element={<PurchaseOrderEditorPage />} /><Route path="/customer-returns" element={<ReturnsPage kind="customer" />} /><Route path="/supplier-returns" element={<ReturnsPage kind="supplier" />} /><Route path="/stock-in" element={<StockInPage />} /><Route path="/stock-out" element={<StockOutPage />} /><Route path="/movement-history" element={<MovementHistoryPage />} /><Route element={<RequireAdmin />}><Route path="/users" element={<UsersPage />} /></Route><Route path="/forbidden" element={<Forbidden />} /></Route></Route></Routes> }
